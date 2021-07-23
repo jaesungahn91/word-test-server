@@ -85,10 +85,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     /* Spring에서는 OPTIONS에 대한 요청을 막고 있으므로 해당 코드를 통해서 OPTIONS 요청이 왔을 때도 오류를 리턴하지 않도록 함 */
                         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
+                        .antMatchers("/h2-console/**").permitAll()
                         .antMatchers("/api/v1/vocabulary/permit-all").permitAll()
                         .antMatchers("/api/v1/auth/login").permitAll()
-
-
 
                         .antMatchers("/api/vi/vocabulary/auth").hasRole("AUTH")//.authenticated()
                         .antMatchers("/**").authenticated()
