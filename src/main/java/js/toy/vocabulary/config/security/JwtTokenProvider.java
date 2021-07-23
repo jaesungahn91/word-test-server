@@ -29,7 +29,8 @@ public class JwtTokenProvider {
     private String jwtSecretKey = "webfirewood";
 
     /* 토큰 유효시간 */
-    private long jwtExpirationMs = 30 * 60 * 1000L;
+//    private long jwtExpirationMs = 30 * 60 * 1000L;
+    private long jwtExpirationMs = 30 * 1000L;
 
 
     /* 객체 초기화, secretKey를 Base64로 인코딩한다. */
@@ -54,7 +55,7 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    /* request에서 jwt 토큰 가져오기 */
+    /* request에서 jwt 토큰 가져오기 `*/
     public String getJwtFromRequest(HttpServletRequest request) {
         String authorization = request.getHeader("Authorization");
         return getJwtFromAuthoriation(authorization);
